@@ -3,14 +3,14 @@ import * as moment from 'moment';
 import {DateService} from '../shared/date.service';
 
 interface Day {
-  value: moment.Moment
-  active: boolean
-  disabled: boolean
-  selected: boolean
+  value: moment.Moment;
+  active: boolean;
+  disabled: boolean;
+  selected: boolean;
 }
 
 interface Week {
-  days: Day[]
+  days: Day[];
 }
 
 @Component({
@@ -20,45 +20,45 @@ interface Week {
 })
 export class CalendarComponent implements OnInit {
 
-  calendar!: Week[]
+  calendar!: Week[];
 
   constructor(public dateService: DateService) {
   }
 
-  ngOnInit() {
-    this.dateService.date.subscribe(this.generate.bind(this))
+  ngOnInit(): void {
+    this.dateService.date.subscribe(this.generate.bind(this));
   }
 
-  generate(now: moment.Moment) {
-    const startDay = now.clone().startOf('month').startOf('isoWeek')
-    const endDay = now.clone().endOf('month').endOf('isoWeek')
+  generate(now: moment.Moment): void {
+    const startDay = now.clone().startOf('month').startOf('isoWeek');
+    const endDay = now.clone().endOf('month').endOf('isoWeek');
 
-    const date = startDay.clone().subtract(1, 'day')
+    const date = startDay.clone().subtract(1, 'day');
 
-    const calendar = []
+    const calendar = [];
 
     while (date.isBefore(endDay, 'day')) {
       calendar.push({
         days: Array(7)
           .fill(0)
           .map(() => {
-            const value = date.add(1, 'day').clone()
-            const active = moment().isSame(value, 'date')
-            const disabled = !now.isSame(value, 'month')
-            const selected = now.isSame(value, 'date')
+            const value = date.add(1, 'day').clone();
+            const active = moment().isSame(value, 'date');
+            const disabled = !now.isSame(value, 'month');
+            const selected = now.isSame(value, 'date');
 
             return {
               value, active, disabled, selected
-            }
+            };
           })
-      })
+      });
     }
 
-    this.calendar = calendar
+    this.calendar = calendar;
   }
 
-  select(day: moment.Moment) {
-    this.dateService.changeDate(day)
+  select(day: moment.Moment): void {
+    this.dateService.changeDate(day);
   }
 
 }
