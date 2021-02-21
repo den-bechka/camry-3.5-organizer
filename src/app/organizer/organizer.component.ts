@@ -37,6 +37,7 @@ export class OrganizerComponent implements OnInit {
       date: this.dateService.date.value.format('DD-MM-YYYY')
     };
 
+    // tslint:disable-next-line:no-shadowed-variable
     this.tasksService.create(task).subscribe(task => {
       this.tasks.push(task);
       this.form.reset();

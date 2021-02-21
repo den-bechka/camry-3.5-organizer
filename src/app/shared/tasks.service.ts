@@ -16,7 +16,7 @@ interface CreateResponse {
 
 @Injectable({providedIn: 'root'})
 export class TasksService {
-  static url = 'https://ogranizer-93ecc-default-rtdb.firebaseio.com/tasks';
+  static url = 'https://ogranizer-93ecc-default-rtdb.firebaseio.com/user';
 
   constructor(private http: HttpClient) {
   }
