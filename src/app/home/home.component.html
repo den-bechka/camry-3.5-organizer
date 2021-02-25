@@ -1,0 +1,21 @@
+<div class="container">
+<h4 class="mt-4">Home Page</h4>
+
+<p *ngIf="user">Logged in as: {{ user?.email }} – {{ user?.displayName }} – {{ userInfo()}}</p>
+
+<button class="btn btn-primary mr-2" *ngIf="!user" (click)="register()">Register</button>
+<button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
+<button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
+
+  <header>
+    <app-selector></app-selector>
+  </header>
+
+  <main>
+    <app-calendar></app-calendar>
+  </main>
+
+  <div *ngIf="user">
+    <app-organizer></app-organizer>
+  </div>
+</div>
