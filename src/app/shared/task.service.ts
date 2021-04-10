@@ -21,6 +21,10 @@ export class TasksService {
   static url = `https://organizer-53db8-default-rtdb.firebaseio.com/tasks/`;
   home: HomeComponent;
   user: firebase.User;
+  tasks: Task[] = [];
+  unsortedTasks: Task[] = [];
+  sortedTasks: Task[] = [];
+  tasksList: Task[] = [];
 
   constructor(private http: HttpClient) {
   }
@@ -33,6 +37,24 @@ export class TasksService {
           return [];
         }
         return Object.keys(tasks).map(key => ({...tasks[key], id: key}));
+      }));
+  }
+
+  loadTasksList(user): Observable<Task[]> {
+    return this.http
+      .get<Task[]>(`${TasksService.url}/${user?.uid}.json`)
+      .pipe(map(receivedTasks => {
+        if (!receivedTasks) {
+          return [];
+        }
+        this.unsortedTasks = Object.keys(receivedTasks).map(key => ({...receivedTasks[key]}));
+        this.unsortedTasks.forEach(unsortedTasks => {
+          this.sortedTasks = Object.keys(unsortedTasks).map(key => ({...unsortedTasks[key], id: key}));
+          this.sortedTasks.forEach(preparedTasks => {
+            this.tasksList.push(preparedTasks);
+          });
+        });
+        return this.tasksList;
       }));
   }
 

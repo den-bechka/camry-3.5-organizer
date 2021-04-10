@@ -15,6 +15,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
 import { MomentPipe } from './shared/moment.pipe';
+import { TasksListComponent } from './account/tasks-list/tasks-list.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,10 +27,12 @@ import { MomentPipe } from './shared/moment.pipe';
     SelectorComponent,
     CalendarComponent,
     OrganizerComponent,
-    MomentPipe
+    MomentPipe,
+    TasksListComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,

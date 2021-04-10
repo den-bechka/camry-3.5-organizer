@@ -1,0 +1,17 @@
+<main>
+  <a routerLink="/home">Home page</a>
+  <ul *ngIf="tasksList.length; else noTasks">
+    <li class="task" *ngFor="let task of tasksList; let i = index">
+        <span>
+          <strong>{{ i + 1 }}</strong>
+          key: <strong>{{ task.id }}</strong>
+          date: <strong>{{ task.date }}</strong>
+          value: <strong>{{ task.title }}</strong>
+        </span>
+      <button class="btn btn-primary" (click)="remove(task)">Remove</button>
+    </li>
+  </ul>
+  <ng-template #noTasks>
+    <p class="text-center">No tasks yet.</p>
+  </ng-template>
+</main>

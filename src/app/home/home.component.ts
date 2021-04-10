@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {AuthService} from '../auth/auth.service';
-import {Router} from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+import { Router } from '@angular/router';
 import firebase from 'firebase';
 
 @Component({
@@ -27,6 +27,10 @@ export class HomeComponent implements OnInit {
 
   register(): void {
     this.router.navigate(['/register']);
+  }
+
+  tasksList(): void {
+    this.router.navigateByUrl('/account/tasks-list').then(r => r);
   }
 
   logout(): void {
