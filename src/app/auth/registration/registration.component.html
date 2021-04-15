@@ -1,47 +1,37 @@
-<div class="row mt-4">
-  <div class="col-12">
-    <h4>User Registration</h4>
-  </div>
+<div class="wrapper">
+  <div class="login-form">
+    <div class="logo">
+      <h6>Sign Up</h6>
+    </div>
 
-  <div class="col-12">
     <div class="row" *ngIf="authError">
       <div class="col-12 alert alert-danger">
         {{ authError?.message }}
       </div>
     </div>
     <form #userRegForm="ngForm" (ngSubmit)="createUser(userRegForm)">
-      <div class="row">
-        <div class="col-md-6 mb-2">
-          <label for="firstName">First name</label>
-          <input ngModel #firstname="ngModel" name="firstName" type="text" class="form-control" id="firstName">
-        </div>
-        <div class="col-md-6 mb-2">
-          <label for="lastName">Last name</label>
-          <input ngModel #lastname="ngModel" name="lastName" type="text" class="form-control" id="lastName" value="">
-        </div>
+      <div class="text-box">
+        <input ngModel #firstname="ngModel" name="firstName" id="firstName" type="text" placeholder="First Name" autofocus autocomplete="off" required>
       </div>
-      <div class="row">
-        <div class="col-md-12 mb-2">
-          <label for="email">Email</label>
-          <input ngModel #email="ngModel" name="email" id="email" type="email" class="form-control">
-        </div>
+
+      <div class="text-box">
+        <input ngModel #lastName="ngModel" name="lastName" id="lastName" type="text" placeholder="Last Name" autocomplete="off" required>
       </div>
-      <div>
-        <div class="row">
-          <div class="col-md-12 mb-2">
-            <label for="password">Password</label>
-            <input ngModel #password="ngModel" name="password" id="password" type="password" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-12">
-            <button class="btn btn-primary" type="submit">Submit</button>
-            <a href="/login">
-              <button class="btn btn-primary float-right" type="button">Return to login</button>
-            </a>
-          </div>
-        </div>
+
+      <div class="text-box">
+        <input ngModel #email="ngModel" name="email" id="email" type="email" placeholder="Email" autocomplete="off" required>
       </div>
+
+      <div class="text-box">
+        <input ngModel #password="ngModel" name="password" id="password" type="password" placeholder="Password" required>
+      </div>
+
+      <button type="submit" class="login-btn active">Create Account</button>
     </form>
+
+    <div class="dont-have-account">
+      Already have an account?
+      <a href="/login">Sign In</a>
+    </div>
   </div>
 </div>

@@ -37,7 +37,6 @@ export class AuthService {
   }
 
   createUser(user): void {
-    console.log(user);
     this.afAuth.createUserWithEmailAndPassword( user.email, user.password)
       .then( userCredential => {
         this.newUser = user;
@@ -57,7 +56,7 @@ export class AuthService {
   }
 
   insertUserData(userCredential: firebase.auth.UserCredential): any {
-    return this.db.doc(`Users/${userCredential.user.uid}`).set({
+    return this.db.doc(`users/${userCredential.user.uid}`).set({
       email: this.newUser.email,
       firstname: this.newUser.firstName,
       lastname: this.newUser.lastName,

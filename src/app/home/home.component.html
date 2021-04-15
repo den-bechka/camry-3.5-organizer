@@ -7,7 +7,7 @@
   <button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
   <button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
   <button class="btn btn-primary" type="button" *ngIf="user" (click)="tasksList()">Tasks list</button>
-  <a routerLink="/account/tasks-list">Home page</a>
+  <a href="/account/tasks-list">Tasks</a>
 
   <header>
     <app-selector></app-selector>

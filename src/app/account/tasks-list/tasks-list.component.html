@@ -1,5 +1,5 @@
 <main>
-  <a routerLink="/home">Home page</a>
+  <a href="/home">Home page</a>
   <ul *ngIf="tasksList.length; else noTasks">
     <li class="task" *ngFor="let task of tasksList; let i = index">
         <span>
