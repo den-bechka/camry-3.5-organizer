@@ -20,6 +20,16 @@ interface Week {
 })
 export class CalendarComponent implements OnInit {
 
+  public dayNames = [
+    'Mon',
+    'Tue',
+    'Wen',
+    'Thu',
+    'Fri',
+    'Sat',
+    'Sun'
+  ];
+
   calendar!: Week[];
 
   constructor(public dateService: DateService) {
