@@ -1,5 +1,6 @@
 section {
-  border: 1px solid #000;
+  border: 1px solid #323048;
+  margin: 1rem;
   padding: 1rem;
 
   header {
@@ -12,6 +13,6 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: .5rem 1rem;
-  border: 1px solid #ccc;
+  background-color: var(--dark-color);
   margin-bottom: .5rem;
 }

@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 :root {
-  --primary-color: #dc3545;
+  --primary-color: var(--primary);
   --dark-color: #333333;
   --light-color: #f4f4f4;
 }
@@ -17,7 +17,7 @@
 }
 
 body {
-  font-family: Roboto, sans-serif;
+  font-family: Cursive, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background: #202020;
@@ -25,10 +25,11 @@ body {
 }
 
 a {
-  color: var(--primary-color);
   text-decoration: none;
+  color: #fff;
   &:hover {
-    color: #666;
+    color: #fff;
+    text-decoration: none;
   }
 }
 
@@ -51,10 +52,6 @@ input {
   margin: auto;
   overflow: hidden;
   padding: 0 2rem;
-}
-
-table th {
-  background: var(--light-color);
 }
 
 .btn {

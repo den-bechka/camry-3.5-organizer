@@ -1,16 +1,28 @@
 <main>
-  <a href="/home">Home page</a>
-  <ul *ngIf="tasksList.length; else noTasks">
-    <li class="task" *ngFor="let task of tasksList; let i = index">
-        <span>
-          <strong>{{ i + 1 }}</strong>
-          key: <strong>{{ task.id }}</strong>
-          date: <strong>{{ task.date }}</strong>
-          value: <strong>{{ task.title }}</strong>
-        </span>
-      <button class="btn btn-primary" (click)="remove(task)">Remove</button>
-    </li>
-  </ul>
+  <button class="btn btn-primary mb-3 mt-3" type="button" *ngIf="user">
+    <a href="/home">Return to Home Page</a>
+  </button>
+  <table *ngIf="tasksList.length; else noTasks">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Date</th>
+      <th scope="col">Title</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let task of tasksList; let i = index">
+      <td>{{ i + 1}}</td>
+      <td>{{ task.date }}</td>
+      <td>{{ task.title }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="remove(task)">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
   <ng-template #noTasks>
     <p class="text-center">No tasks yet.</p>
   </ng-template>

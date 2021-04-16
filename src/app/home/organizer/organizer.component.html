@@ -1,6 +1,6 @@
 <section>
   <header>
-    Organizer: <strong>{{ dateService.date | async | moment: 'DD.MM.YYYY' }}</strong>
+    Tasks: <strong>{{ dateService.date | async | moment: 'DD.MM.YYYY' }}</strong>
   </header>
 
   <main>
@@ -20,7 +20,7 @@
 
   <footer>
     <form (ngSubmit)="submit()" [formGroup]="form">
-      <input type="text" formControlName="title">
+      <input type="text" formControlName="title" class="form-control" placeholder="Enter text for adding task">
       <button type="submit" class="btn btn-primary btn-block" [disabled]="form.invalid">Add</button>
     </form>
   </footer>

@@ -83,12 +83,15 @@
 .dont-have-account{
   font-size: 14px;
   text-align: center;
-  color: #f4f4f480;
+  color: #f4f4f4;
   margin: 20px 0;
 }
 
 .dont-have-account a{
-  color: #f1f1f1;
+  color: #f4f4f4;
+  &:hover {
+    color: #cecece;
+  }
 }
 
 @media screen and (max-width: 470px) {

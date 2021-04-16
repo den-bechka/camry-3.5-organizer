@@ -44,7 +44,6 @@ export class CalendarComponent implements OnInit {
     const endDay = now.clone().endOf('month').endOf('isoWeek');
 
     const date = startDay.clone().subtract(1, 'day');
-
     const calendar = [];
 
     while (date.isBefore(endDay, 'day')) {
@@ -63,7 +62,7 @@ export class CalendarComponent implements OnInit {
           })
       });
     }
-
+    console.log(calendar);
     this.calendar = calendar;
   }
 

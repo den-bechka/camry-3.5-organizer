@@ -1,17 +1,14 @@
-<table>
-  <thead>
-  <tr>
-    <th *ngFor="let dayName of dayNames">{{ dayName }}</th>
-  </tr>
-  </thead>
-
-  <tbody>
-  <tr *ngFor="let week of calendar">
-    <td *ngFor="let day of week.days" [class.disabled]="day.disabled" (click)="select(day.value)">
-        <span [class.selected]="day.selected" [class.active]="day.active">
-          {{ day.value | moment: 'ddd DD' }}
-        </span>
-    </td>
-  </tr>
-  </tbody>
-</table>
+<div class="dark">
+  <div class="calendar">
+    <div class="calendar-body">
+      <div class="calendar-days">
+        <div *ngFor="let dayName of dayNames"><span>{{ dayName }}</span></div>
+      </div>
+      <div class="calendar-days" *ngFor="let week of calendar">
+        <div *ngFor="let day of week.days" [class.disabled]="day.disabled" [class.selected]="day.selected" [class.active]="day.active" (click)="select(day.value)">
+          <span>{{ day.value | moment: 'DD' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
