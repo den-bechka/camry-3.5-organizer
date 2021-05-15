@@ -1,29 +1,30 @@
-<main>
-  <button class="btn btn-primary mb-3 mt-3" type="button" *ngIf="user">
-    <a href="/home">Return to Home Page</a>
-  </button>
-  <table *ngIf="tasksList.length; else noTasks">
-    <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Date</th>
-      <th scope="col">Title</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
+<main class="container-fluid mt-5">
+  <div class="table-responsive">
+    <table *ngIf="tasksList.length; else noTasks" class="table-striped">
+      <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Date</th>
+        <th scope="col">Title</th>
+        <th scope="col">Action</th>
+      </tr>
+      </thead>
 
-    <tbody>
-    <tr *ngFor="let task of tasksList; let i = index">
-      <td>{{ i + 1}}</td>
-      <td>{{ task.date }}</td>
-      <td>{{ task.title }}</td>
-      <td>
-        <button class="btn btn-primary" (click)="remove(task)">Remove</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
+      <tbody>
+      <tr *ngFor="let task of tasksList; let i = index">
+        <th scope="col">{{ i + 1}}</th>
+        <td>{{ task.date }}</td>
+        <td class="task-title">
+          <span>{{ task.title }}</span>
+        </td>
+        <td>
+          <button class="btn btn-primary" (click)="remove(task)">Remove</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
   <ng-template #noTasks>
-    <p class="text-center">No tasks yet.</p>
+    <p class="text-center display-6 p-5">No tasks yet.</p>
   </ng-template>
 </main>

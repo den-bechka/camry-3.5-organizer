@@ -1,4 +1,19 @@
-<div class="container">
-  <h3 class="app-title">Angular Organizer with Firebase Authorization</h3>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <a class="mat-link" (click)="home()" mat-button>Organizer App</a>
+    <a class="mat-link" *ngIf="user" href="/account/tasks-list" mat-button>Tasks List</a>
+    <a class="mat-link" *ngIf="user" (click)="logout()" mat-button>Logout</a>
+    <a class="mat-link" *ngIf="!user" (click)="login()" mat-button>Sign In</a>
+    <a class="mat-link" *ngIf="!user" (click)="register()" mat-button>Sign Up</a>
+    <span style="flex: 1 1 auto"></span>
+    <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">
+      <span *ngIf="isDarkMode">Dark</span>
+      <span *ngIf="!isDarkMode">Light</span>
+      <span class="ms-1">theme</span>
+    </mat-slide-toggle>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-drawer-container autosize>
   <router-outlet></router-outlet>
-</div>
+</mat-drawer-container>

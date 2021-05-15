@@ -7,10 +7,9 @@ table {
     border: 1px solid #323048;
     padding: .5rem 1rem;
     text-align: center;
-  }
-
-  th {
-    background-color: var(--dark);
+    &.task-title {
+      line-break: anywhere;
+    }
   }
 
   td {

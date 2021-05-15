@@ -1,12 +1,33 @@
-/* You can add global styles to this file, and also import other style files */
-@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "~bootstrap/dist/css/bootstrap.css";
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+@import 'src/assets/styles/material-theme.scss';
+
 :root {
-  --primary-color: var(--primary);
+  --primary-color: var(--bs-primary);
   --dark-color: #333333;
   --light-color: #f4f4f4;
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  --font-family: Cursive;
+}
+
+.light-mode {
+  --form-bg: #333;
+  --body: #f3f8fe;
+  --main: #fdfdfd;
+  --second: #c3c2c8;
+  --hover: #edf0f5;
+  --text: #151426;
+}
+
+.dark-mode {
+  --form-bg: #333;
+  --body: #4d4c5a;
+  --main: #141529;
+  --second: #79788c;
+  --hover: #323048;
+  --text: #f8fbff;
 }
 
 * {
@@ -20,8 +41,16 @@ body {
   font-family: Cursive, sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background: #202020;
-  color: #f1f1f1;
+}
+
+body.light-mode {
+  color: #303030;
+  background-color: #fafafa;
+}
+
+body.dark-mode {
+  color: #fff;
+  background-color: #303030;
 }
 
 a {
@@ -33,18 +62,12 @@ a {
   }
 }
 
-ul {
-  list-style: none;
+a.mat-link {
+  font-size: 1.2rem;
 }
 
-input {
-  display: block;
-  width: 100%;
-  padding: .4rem;
-  font-size: 1.2rem;
-  border: 1px solid #ccc;
-  outline: none;
-  margin-bottom: .5rem;
+ul {
+  list-style: none;
 }
 
 .container {
@@ -53,41 +76,3 @@ input {
   overflow: hidden;
   padding: 0 2rem;
 }
-
-.btn {
-  display: inline-block;
-  background: var(--light-color);
-  color: #333;
-  padding: .4rem 1.3rem;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  margin-right: .5rem;
-  transition: opacity .2s;
-  outline: none;
-
-  &:disabled {
-    background: var(--dark-color);
-    color: #fff;
-    cursor: not-allowed;
-  }
-
-  &:hover:not(:disabled) {
-    opacity: .8;
-  }
-}
-
-.btn-block {
-  display: block;
-  width: 100%;
-}
-
-.btn-primary {
-  background: var(--primary-color);
-  color: #fff;
-}
-
-.text-center {
-  text-align: center;
-}
-

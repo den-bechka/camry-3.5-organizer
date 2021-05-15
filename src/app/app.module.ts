@@ -17,6 +17,12 @@ import { environment } from '../environments/environment';
 import { MomentPipe } from './shared/moment.pipe';
 import { TasksListComponent } from './account/tasks-list/tasks-list.component';
 import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -28,7 +34,7 @@ import { CommonModule } from '@angular/common';
     CalendarComponent,
     OrganizerComponent,
     MomentPipe,
-    TasksListComponent
+    TasksListComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,13 @@ import { CommonModule } from '@angular/common';
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSlideToggleModule,
+    MatSidenavModule,
+    MatDialogModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

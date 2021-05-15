@@ -1,16 +1,10 @@
-<div class="container">
-  <h4 class="mt-4">Home Page</h4>
+<div class="container-md">
+  <div class="mt-3 d-flex align-items-center justify-content-center">
+    <span class="display-6" *ngIf="user">What's up, {{ displayName() }}!</span>
+    <span class="display-6" *ngIf="!user">What's up! Sign In into your account or create the new one.</span>
+  </div>
 
-<!--  <p *ngIf="user">Logged in as: {{ user?.email }} – {{ user?.displayName }} – {{ userInfo() }}</p>-->
-
-  <button class="btn btn-primary mr-2" *ngIf="!user" (click)="register()">Register</button>
-  <button class="btn btn-primary" *ngIf="!user" (click)="login()">Login</button>
-  <button class="btn btn-primary" *ngIf="user" (click)="logout()">Logout</button>
-  <button class="btn btn-primary" type="button" *ngIf="user">
-    <a href="/account/tasks-list">Tasks List</a>
-  </button>
-
-  <header>
+  <header class="mt-3">
     <app-selector></app-selector>
   </header>
 

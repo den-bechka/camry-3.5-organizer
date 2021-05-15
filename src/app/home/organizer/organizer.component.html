@@ -1,20 +1,17 @@
 <section>
-  <header>
+  <header class="h6">
     Tasks: <strong>{{ dateService.date | async | moment: 'DD.MM.YYYY' }}</strong>
   </header>
 
   <main>
-    <ul *ngIf="tasks.length; else noTasks">
+    <ol *ngIf="tasks.length; else noTasks" class="list-group list-group-numbered">
       <li class="task" *ngFor="let task of tasks; let i = index">
-        <span>
-          <strong>{{ i + 1 }}</strong>
-          {{ task.title }}
-        </span>
-        <button class="btn btn-primary" (click)="remove(task)">Remove</button>
+        <span class="ms-1">{{ task.title }}</span>
+        <button class="btn btn-danger ms-auto" (click)="remove(task)">Remove</button>
       </li>
-    </ul>
+    </ol>
     <ng-template #noTasks>
-      <p class="text-center">No tasks yet.</p>
+      <p class="text-center h6">No tasks yet.</p>
     </ng-template>
   </main>
 

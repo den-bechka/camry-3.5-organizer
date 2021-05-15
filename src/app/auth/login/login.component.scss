@@ -10,7 +10,6 @@
 
 .wrapper {
   padding-top: 100px;
-  background: #202020;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,7 +17,7 @@
 
 .login-form {
   width: 470px;
-  background: #333;
+  background: var(--form-bg);
   padding: 30px 60px;
 }
 

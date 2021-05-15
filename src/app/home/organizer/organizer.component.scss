@@ -13,6 +13,43 @@ section {
   justify-content: space-between;
   align-items: center;
   padding: .5rem 1rem;
-  background-color: var(--dark-color);
+  border: 1px solid var(--bs-gray);
+  border-radius: 5px;
   margin-bottom: .5rem;
+
+  span {
+    line-break: anywhere;
+  }
+}
+
+.list-group-numbered > li::before {
+  font-weight: bold;
+}
+
+input {
+  display: block;
+  width: 100%;
+  padding: .4rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  outline: none;
+  margin-bottom: .5rem;
+}
+
+.btn {
+  &:disabled {
+    background: var(--dark-color);
+    border-color: unset;
+    color: #fff;
+    cursor: not-allowed;
+  }
+
+  &:hover:not(:disabled) {
+    opacity: .8;
+  }
+}
+
+.btn-block {
+  display: inline-block;
+  width: 100%;
 }

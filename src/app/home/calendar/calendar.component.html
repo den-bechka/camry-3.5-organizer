@@ -1,8 +1,10 @@
 <div class="dark">
   <div class="calendar">
     <div class="calendar-body">
-      <div class="calendar-days">
-        <div *ngFor="let dayName of dayNames"><span>{{ dayName }}</span></div>
+      <div class="calendar-week-day">
+        <div *ngFor="let dayName of dayNames">
+          <span>{{ dayName }}</span>
+        </div>
       </div>
       <div class="calendar-days" *ngFor="let week of calendar">
         <div *ngFor="let day of week.days" [class.disabled]="day.disabled" [class.selected]="day.selected" [class.active]="day.active" (click)="select(day.value)">
